@@ -10,21 +10,28 @@
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
   },
   "dependencies": {
-    "@emotion/cache": "latest",
-    "@emotion/react": "latest",
-    "@emotion/server": "latest",
-    "@emotion/styled": "latest",
-    "@mui/icons-material": "latest",
-    "@mui/material": "latest",
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest"
+    "@emotion/cache": "11.11.0",
+    "@emotion/react": "11.11.1",
+    "@emotion/server": "11.11.0",
+    "@emotion/styled": "11.11.0",
+    "@mui/icons-material": "5.11.16",
+    "@mui/material": "5.13.6",
+    "@pinecone-database/pinecone": "0.1.6",
+    "ai": "2.1.8",
+    "langchain": "0.0.97",
+    "next": "13.4.7",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-markdown": "8.0.7",
+    "react-syntax-highlighter": "15.5.0",
+    "rehype-add-classes": "1.0.0",
+    "remark-gfm": "3.0.1"
   },
   "devDependencies": {
-    "@types/node": "latest",
-    "@types/react": "latest",
-    "eslint": "latest",
-    "eslint-config-next": "latest",
-    "typescript": "latest"
+    "@types/node": "20.3.2",
+    "@types/react": "18.2.14",
+    "eslint": "8.43.0",
+    "eslint-config-next": "13.4.7",
+    "typescript": "5.1.3"
   }
 }
