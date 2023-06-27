@@ -33,10 +33,10 @@ export default async function POST(req: Request) {
   // const { messages } = await req.json();
   const { messages } = json;
 
-  const history = messages.map((m) => {
+  const history = messages.map((m: Record<string,unknown>) => {
     return m.role === "user"
-      ? new HumanChatMessage(m.content)
-      : new AIChatMessage(m.content.split("\n__META_JSON__\n")[0]);
+      ? new HumanChatMessage(m.content as string)
+      : new AIChatMessage((m.content as string).split("\n__META_JSON__\n")[0]);
   });
 
   // OpenAI recommends replacing newlines with spaces for best results

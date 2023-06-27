@@ -4,6 +4,7 @@ import { Message, useChat } from "ai/react";
 
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+// @ts-expect-error: ok
 import rehypeAddClasses from "rehype-add-classes";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/cjs/styles/prism";
@@ -72,6 +73,7 @@ export default function Chat() {
       if (atBottom) autoscroll.current = true;
       else autoscroll.current = false;
     }
+    // @ts-expect-error: ok
     const func = (...args) => console.log(args);
     document.addEventListener("scrollend", checkScroll);
     return () => document.removeEventListener("scrollend", checkScroll);
@@ -156,6 +158,7 @@ export default function Chat() {
               {(function () {
                 if (m.meta) {
                   const docs = m.meta.sourceDocuments.filter(
+                    // @ts-expect-error: TODO
                     (doc) => doc.pageContent.length > 5
                   );
                   if (docs.length === 0) return null;
@@ -163,21 +166,24 @@ export default function Chat() {
                     <details>
                       <summary>Sources</summary>
                       <ol>
-                        {docs.map((doc, i) => (
-                          <li key={i}>
-                            <details>
-                              <summary>
-                                {" "}
-                                <i>{doc.metadata["pdf.info.Title"]}</i>,{" "}
-                                {doc.metadata["pdf.info.Author"]}, page{" "}
-                                {doc.metadata["loc.pageNumber"]}.
-                              </summary>
-                              <p style={{ fontSize: "75%" }}>
-                                {doc.pageContent}
-                              </p>
-                            </details>
-                          </li>
-                        ))}
+                        {
+                          // @ts-expect-error: TODO
+                          docs.map((doc, i) => (
+                            <li key={i}>
+                              <details>
+                                <summary>
+                                  {" "}
+                                  <i>{doc.metadata["pdf.info.Title"]}</i>,{" "}
+                                  {doc.metadata["pdf.info.Author"]}, page{" "}
+                                  {doc.metadata["loc.pageNumber"]}.
+                                </summary>
+                                <p style={{ fontSize: "75%" }}>
+                                  {doc.pageContent}
+                                </p>
+                              </details>
+                            </li>
+                          )
+                        )}
                       </ol>
                     </details>
                   );
